@@ -1,0 +1,4 @@
+Maven Build: mvn clean compile package
+Docker Build: docker build -t spring-boot .
+List the Docker images: docker images | grep spring-boot
+Start the container: docker run -p 8080:8080 spring-boot
