@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: spring-boot
+  namespace: default
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: spring-boot
+        version: latest
+    spec:
+      containers:
+        - name: com-wwex-container-vendorprofile
+          image: eswarkarumuri/spring-boot-repo:spring-boot
+          ports:
+            - containerPort: 8080

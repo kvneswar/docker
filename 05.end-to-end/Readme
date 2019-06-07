@@ -1,4 +1,39 @@
 Maven Build: mvn clean compile package
+
+####### Docker ########
+
 Docker Build: docker build -t spring-boot .
+
 List the Docker images: docker images | grep spring-boot
+
 Start the container: docker run -p 8080:8080 spring-boot
+
+Test: curl http://localhost:8080 | json_pp
+
+Stop the Docker container: docker stop spring-boot
+
+Remove the Docker Container: docker rm spring-boot
+
+######## Docker Hub #######
+
+We need to tag the image and push to the Docker hub or local Docker registry. Let's use Docker Hub
+
+Browser: create a docker repo in Docker Hub
+
+Login(Terminal): docker login (Use Docker Hub Credentials)
+
+Tag the existing Docker image(Terminal): docker tag spring-boot eswarkarumuri/spring-boot-repo:spring-boot
+
+Push the Docker Image: docker push eswarkarumuri/spring-boot-repo:spring-boot
+
+######## Kubernetes #######
+
+Install Kubernetes thru Docker Desktop
+
+To deploy the pod: kubectl create -f deployment-definition.yml
+
+To deploy the service: kubectl create -f service-definition.yml
+
+To validate: kubectl get all
+
+Test: curl http://localhost:8080 | json_pp
